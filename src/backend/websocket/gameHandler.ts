@@ -240,28 +240,36 @@ function registerPlatformHandlers(io: Server, socket: SocketWithSession): void {
   socket.on('start_game', (data: { gameCode: string; playerId: string }) => {
     try {
       const { gameCode, playerId } = data;
+      console.log(`🎮 DEBUG start_game: gameCode=${gameCode}, playerId=${playerId}`);
       
       // Verify room exists
       const room = gameService.getRoom(gameCode);
+      console.log(`🎮 DEBUG room exists: ${!!room}`);
       if (!room) {
+        console.error(`❌ Room not found: ${gameCode}`);
         socket.emit('error', { message: 'Room not found' });
         return;
       }
       
       // Verify player is host
       const player = room.players.find(p => p.id === playerId);
+      console.log(`🎮 DEBUG player found: ${!!player}, isHost: ${player?.isHost}`);
       if (!player?.isHost) {
+        console.error(`❌ Player ${playerId} is not host`);
         socket.emit('error', { message: 'Only host can start the game' });
         return;
       }
       
       // Verify room is in waiting state
+      console.log(`🎮 DEBUG room status: ${room.status}`);
       if (room.status !== 'waiting') {
+        console.error(`❌ Room not in waiting state: ${room.status}`);
         socket.emit('error', { message: 'Game already started' });
         return;
       }
       
       // Start countdown
+      console.log(`✅ Starting countdown for room: ${gameCode}`);
       startCountdown(io, gameCode);
       
       console.log(`⏳ Countdown started for room: ${gameCode}`);

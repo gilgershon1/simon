@@ -86,6 +86,12 @@ export function WaitingRoomPage() {
       setIsHost(me?.isHost || false);
     });
     
+    // Listen for errors
+    socket.on('error', (data: { message: string }) => {
+      console.error('❌ Server error:', data.message);
+      setToast({ message: data.message, type: 'error' });
+    });
+    
     // Listen for countdown
     socket.on('countdown', (data: { count: number }) => {
       console.log('⏳ Countdown:', data.count);
@@ -115,6 +121,7 @@ export function WaitingRoomPage() {
       cleanup();
       socket.off('room_state');
       socket.off('room_state_update');
+      socket.off('error');
       socket.off('countdown');
       socket.off('player_joined');
       socket.off('player_left');
@@ -123,9 +130,28 @@ export function WaitingRoomPage() {
   
   // Handle start game (host only)
   const handleStartGame = () => {
-    const socket = socketService.getSocket();
-    if (!socket || !gameCode || !playerId) return;
+    console.log('🎮 DEBUG: handleStartGame called');
+    console.log('🎮 DEBUG: gameCode:', gameCode);
+    console.log('🎮 DEBUG: playerId:', playerId);
+    console.log('🎮 DEBUG: isHost:', isHost);
     
+    const socket = socketService.getSocket();
+    console.log('🎮 DEBUG: socket exists:', !!socket);
+    console.log('🎮 DEBUG: socket connected:', socket?.connected);
+    
+    if (!socket) {
+      console.error('❌ No socket connection');
+      setToast({ message: 'No connection to server', type: 'error' });
+      return;
+    }
+    
+    if (!gameCode || !playerId) {
+      console.error('❌ Missing gameCode or playerId');
+      setToast({ message: 'Missing game info', type: 'error' });
+      return;
+    }
+    
+    console.log('📤 Emitting start_game:', { gameCode, playerId });
     socket.emit('start_game', { gameCode, playerId });
   };
   
