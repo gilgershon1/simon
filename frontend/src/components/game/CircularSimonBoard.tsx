@@ -188,9 +188,6 @@ export const CircularSimonBoard: React.FC<CircularSimonBoardProps> = ({
   // Track if audio is initialized
   const audioInitialized = useRef(false);
   
-  // Track the last round we animated to prevent re-running with same data
-  const lastAnimatedRound = useRef<number>(0);
-  
   // CRITICAL FIX: Use ref to track current sequence to avoid closure issues
   // When sequence prop changes between rounds, the ref ensures we always read the latest value
   // Update ref immediately (not in useEffect) to ensure it's always current
@@ -227,42 +224,22 @@ export const CircularSimonBoard: React.FC<CircularSimonBoardProps> = ({
     if (!isShowingSequence || sequence.length === 0) {
       setActiveColor(null);
       setSequenceIndex(-1);
-      lastAnimatedRound.current = 0; // Reset when not showing
       return;
     }
 
-    // CRITICAL: Only animate if this is a genuinely new round
-    // If we've already animated this round, skip (prevents duplicate animations)
-    if (lastAnimatedRound.current === round) {
-      console.log(`🎨 Skipping - already animated round ${round}`);
-      return;
-    }
-
-    // CRITICAL: Capture ALL values at the start to prevent closure issues
-    // Store them in variables that won't change during the animation
-    // Always use the current props, don't rely on refs that might be stale
+    // CRITICAL: Capture ALL values at the start
+    // These captured values will be used throughout the animation
     const sequenceLength = sequence.length;
-    const sequenceToShow = [...sequence]; // Create a copy to ensure we have the exact sequence
-    const currentRound = round; // Capture round value
+    const sequenceToShow = [...sequence]; // Copy to ensure we have exact sequence
+    const currentRound = round;
     
     // Verify we have a valid sequence
-    if (sequenceLength === 0 || sequenceToShow.length === 0) {
-      console.error(`🎨 ERROR: Invalid sequence! Length: ${sequenceLength}, Array:`, sequenceToShow);
+    if (sequenceLength === 0) {
+      console.error(`🎨 ERROR: Empty sequence for round ${currentRound}`);
       return;
     }
     
-    // Mark this round as animated BEFORE starting animation
-    lastAnimatedRound.current = currentRound;
-    sequenceRef.current = sequenceToShow;
-    
-    console.log(`🎨 Starting sequence animation: Round ${currentRound}, Length: ${sequenceLength}, Sequence:`, sequenceToShow);
-    console.log(`🎨 Sequence details:`, {
-      round: currentRound,
-      length: sequenceLength,
-      colors: sequenceToShow,
-      isShowingSequence,
-      sequencePropLength: sequence.length
-    });
+    console.log(`🎨 ANIMATION START: Round ${currentRound}, Length: ${sequenceLength}, Colors:`, sequenceToShow);
 
     const SHOW_DURATION = 800;  // How long each color stays lit (matches sound)
     const SHOW_GAP = 400;       // Gap between colors (all dark)
@@ -323,12 +300,11 @@ export const CircularSimonBoard: React.FC<CircularSimonBoardProps> = ({
     timeoutId = setTimeout(showNextColor, 500);
 
     return () => {
-      console.log(`🎨 Cleaning up animation effect. Round: ${round}, Sequence length: ${sequence.length}`);
+      console.log(`🎨 CLEANUP: Round ${currentRound}, cancelling animation`);
       isCancelled = true; // Mark as cancelled to prevent stale callbacks
       if (timeoutId) clearTimeout(timeoutId);
       setActiveColor(null);
       setSequenceIndex(-1);
-      // Don't reset lastAnimatedRound here - we want to track which round was animated
     };
   }, [isShowingSequence, sequence, round]); // Dependencies: re-run when any of these change
 
