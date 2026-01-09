@@ -180,10 +180,10 @@ export const SimonBoard: React.FC<SimonBoardProps> = ({
     <div className="game-area flex flex-col items-center gap-3 sm:gap-4 md:gap-6 w-full max-w-md px-4 sm:px-2">
       {/* Round Display */}
       <div className="text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
           Round {round}
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-gray-300">
+        <p className="text-xs sm:text-sm md:text-base text-gray-300">
           {disabled 
             ? '👻 Spectating...' 
             : isShowingSequence 
@@ -203,9 +203,9 @@ export const SimonBoard: React.FC<SimonBoardProps> = ({
           <div 
             className={`
               font-bold transition-all duration-200
-              ${secondsRemaining > 10 ? 'text-5xl sm:text-6xl' : ''}
-              ${secondsRemaining > 5 && secondsRemaining <= 10 ? 'text-6xl sm:text-7xl' : ''}
-              ${secondsRemaining <= 5 ? 'text-7xl sm:text-8xl' : ''}
+              ${secondsRemaining > 10 ? 'text-4xl sm:text-6xl' : ''}
+              ${secondsRemaining > 5 && secondsRemaining <= 10 ? 'text-5xl sm:text-7xl' : ''}
+              ${secondsRemaining <= 5 ? 'text-6xl sm:text-8xl' : ''}
               ${timerColor === 'green' ? 'text-green-500' : ''}
               ${timerColor === 'yellow' ? 'text-yellow-500' : ''}
               ${timerColor === 'red' ? 'text-red-500' : ''}
@@ -219,7 +219,7 @@ export const SimonBoard: React.FC<SimonBoardProps> = ({
       
       {/* "Time's Up!" message */}
       {isInputPhase && secondsRemaining === 0 && (
-        <div className="text-5xl sm:text-6xl font-bold text-red-500 animate-pulse">
+        <div className="text-4xl sm:text-5xl font-bold text-red-500 animate-pulse">
           ⏰ TIME'S UP!
         </div>
       )}

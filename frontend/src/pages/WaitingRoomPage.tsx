@@ -213,7 +213,7 @@ export function WaitingRoomPage() {
   if (roomStatus === 'active' && isGameActive) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-2 sm:p-4">
-        <div className="max-w-sm sm:max-w-2xl md:max-w-4xl w-full">
+        <div className="flex flex-col items-center w-full max-w-md">
           {/* Game Code Display */}
           <div className="text-center mb-2 sm:mb-4">
             <p className="text-white/70 text-xs sm:text-sm">Game Code: <span className="font-mono font-bold">{gameCode}</span></p>
@@ -222,7 +222,7 @@ export function WaitingRoomPage() {
           {/* Simon Board */}
           {/* Step 4: Scoreboard */}
           {isGameActive && Object.keys(scores).length > 0 && (
-            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 w-full max-w-sm">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 w-full">
               <h3 className="text-white text-sm sm:text-base font-bold mb-2 text-center">
                 🏆 Scoreboard
               </h3>
@@ -261,7 +261,7 @@ export function WaitingRoomPage() {
           
           {/* Step 4: Eliminated Message */}
           {isEliminated && (
-            <div className="bg-red-500/20 border-2 border-red-500 rounded-xl sm:rounded-2xl p-4 mb-4 text-center max-w-sm w-full">
+            <div className="bg-red-500/20 border-2 border-red-500 rounded-xl sm:rounded-2xl p-4 mb-4 text-center w-full">
               <div className="text-4xl mb-2">💀</div>
               <div className="text-white text-lg sm:text-xl font-bold">
                 You were eliminated!
