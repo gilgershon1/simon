@@ -42,6 +42,11 @@ interface SimonStore {
     eliminations: Array<{ playerId: string; name: string; reason: string }>;
   } | null;
   
+  // Game Over state
+  isGameOver: boolean;
+  gameWinner: { playerId: string; name: string; score: number } | null;
+  finalScores: Array<{ playerId: string; name: string; score: number; isEliminated?: boolean }>;
+  
   // Result state
   lastResult: {
     isCorrect: boolean;
@@ -90,6 +95,9 @@ export const useSimonStore = create<SimonStore>((set, get) => ({
   submittedPlayers: [],
   isEliminated: false,
   roundResult: null,
+  isGameOver: false,
+  gameWinner: null,
+  finalScores: [],
   lastResult: null,
   message: 'Waiting for game to start...',
   isGameActive: false,
@@ -265,18 +273,25 @@ export const useSimonStore = create<SimonStore>((set, get) => ({
     socket.on('simon:game_finished', (data: { winner: any; finalScores: any[] }) => {
       console.log('🏆 Game finished:', data);
       
-      // 🔊 Play victory fanfare!
-      soundService.playVictory();
-      
-      const scoreboard = data.finalScores
-        .map((s: any) => `${s.name}: ${s.score} pts`)
-        .join(', ');
+      // Note: Victory sound is played by GameOverScreen component
       
       set({
         isShowingSequence: false,
         isGameActive: false,
         isInputPhase: false,
-        message: `🏆 Winner: ${data.winner.name} (${data.winner.score} pts)! Final: ${scoreboard}`,
+        isGameOver: true,
+        gameWinner: data.winner ? {
+          playerId: data.winner.playerId || data.winner.id,
+          name: data.winner.name,
+          score: data.winner.score,
+        } : null,
+        finalScores: data.finalScores.map((s: any) => ({
+          playerId: s.playerId || s.id,
+          name: s.name,
+          score: s.score,
+          isEliminated: s.isEliminated,
+        })),
+        message: `🏆 Game Over!`,
       });
     });
     
@@ -343,6 +358,9 @@ export const useSimonStore = create<SimonStore>((set, get) => ({
       submittedPlayers: [],
       isEliminated: false,
       roundResult: null,
+      isGameOver: false,
+      gameWinner: null,
+      finalScores: [],
       lastResult: null,
       message: 'Waiting for game to start...',
       isGameActive: false,

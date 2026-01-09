@@ -7,16 +7,19 @@
  */
 
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import { useSimonStore } from '../store/simonStore';
 import { socketService } from '../services/socketService';
 import { soundService } from '../services/soundService';
 import { CircularSimonBoard } from '../components/game/CircularSimonBoard';
+import { GameOverScreen } from '../components/game/GameOverScreen';
 import { Toast } from '../components/ui/Toast';
 import { MuteButton } from '../components/ui/MuteButton';
 
 export function WaitingRoomPage() {
-  const { session } = useAuthStore();
+  const navigate = useNavigate();
+  const { session, clearSession } = useAuthStore();
   const gameCode = session?.gameCode;
   const playerId = session?.playerId;
   
@@ -36,10 +39,14 @@ export function WaitingRoomPage() {
     isEliminated,
     scores,
     submittedPlayers,
+    isGameOver,
+    gameWinner,
+    finalScores,
     initializeListeners,
     cleanup,
     addColorToSequence,
     submitSequence,
+    resetGame,
   } = useSimonStore();
   
   const [roomStatus, setRoomStatus] = useState<'waiting' | 'countdown' | 'active'>('waiting');
@@ -195,6 +202,26 @@ export function WaitingRoomPage() {
     }
   };
   
+  // Handle Play Again
+  const handlePlayAgain = () => {
+    // Reset game state and go back to waiting room
+    resetGame();
+    setRoomStatus('waiting');
+    
+    // Re-emit join room to refresh state
+    const socket = socketService.getSocket();
+    if (socket && gameCode && playerId) {
+      socket.emit('join_room_socket', { gameCode, playerId });
+    }
+  };
+
+  // Handle Go Home
+  const handleGoHome = () => {
+    cleanup();
+    clearSession();
+    navigate('/');
+  };
+
   // Share game using native share API (mobile-friendly)
   const shareGame = async () => {
     if (!gameCode) return;
@@ -222,6 +249,24 @@ export function WaitingRoomPage() {
     }
   };
   
+  // Render Game Over screen
+  if (isGameOver) {
+    return (
+      <>
+        <MuteButton />
+        <GameOverScreen
+          winner={gameWinner}
+          finalScores={finalScores}
+          currentPlayerId={playerId || ''}
+          roundsPlayed={currentRound}
+          onPlayAgain={handlePlayAgain}
+          onGoHome={handleGoHome}
+          gameCode={gameCode || ''}
+        />
+      </>
+    );
+  }
+
   // Render game board if active
   if (roomStatus === 'active' && isGameActive) {
     return (
