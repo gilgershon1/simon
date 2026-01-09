@@ -8,6 +8,7 @@ Welcome to the Simon Game workshop! Follow these steps to get the multiplayer Si
 
 Before starting, make sure you have:
 
+- ✅ **Cursor IDE** installed → [Download here](https://cursor.com)
 - ✅ **Node.js 18+** installed → [Download here](https://nodejs.org)
 - ✅ **Git** installed → [Download here](https://git-scm.com)
 - ✅ **GitHub account** → [Sign up](https://github.com)
@@ -17,21 +18,37 @@ Before starting, make sure you have:
 
 ## Step 1: Clone the Repository
 
-Open your terminal and run:
+### 1.1 Open Terminal
+
+- **Mac:** Press `Cmd + Space`, type "Terminal", press Enter
+- **Windows:** Press `Win + R`, type "cmd", press Enter
+
+### 1.2 Clone the Code
+
+Copy and paste this command into your terminal:
 
 ```bash
-# Clone the repo
 git clone https://github.com/itayshmool/simon-game-app-cday.git
-
-# Enter the project folder
-cd simon-game-app-cday
 ```
+
+### 1.3 Open in Cursor
+
+1. Open **Cursor IDE**
+2. Click **File** → **Open Folder**
+3. Navigate to the `simon-game-app-cday` folder you just cloned
+4. Click **Open**
+
+> 💡 You should now see the project files in Cursor's sidebar.
 
 ---
 
 ## Step 2: Setup Environment
 
-Run the setup script to configure everything:
+In Cursor, open the terminal:
+- **Mac:** Press `Ctrl + `` ` (backtick)
+- **Windows:** Press `Ctrl + `` ` (backtick)
+
+Run this command:
 
 ```bash
 npm run setup
@@ -48,12 +65,16 @@ This will:
 
 ## Step 3: Run Locally
 
-You need **two terminal windows**:
+You need **two terminal windows** in Cursor.
 
 ### Terminal 1 - Backend Server
+
+In your current terminal, run:
+
 ```bash
 npm run dev:backend
 ```
+
 You should see:
 ```
 🎮 SIMON GAME SERVER
@@ -62,9 +83,14 @@ You should see:
 ```
 
 ### Terminal 2 - Frontend App
+
+1. Click the **+** button in the terminal panel to open a new terminal
+2. Run:
+
 ```bash
 cd frontend && npm run dev
 ```
+
 You should see:
 ```
 VITE v7.x.x ready
@@ -84,79 +110,110 @@ Go to: **http://localhost:5173**
 3. Click **"Create Game"**
 4. Copy the **game code** (e.g., `ABC123`)
 5. Open a **new browser tab** (or incognito window)
-6. Click **"Join Game"**
-7. Paste the game code, enter a different name
-8. Go back to first tab → Click **"Start Game"**
-9. Play! 🎮
+6. Go to **http://localhost:5173**
+7. Click **"Join Game"**
+8. Paste the game code, enter a different name
+9. Go back to first tab → Click **"Start Game"**
+10. Play! 🎮
 
 ---
 
 ## Step 5: Deploy to Render
 
+Now let's put your game online so anyone can play!
+
 ### 5.1 Create Your Own GitHub Repository
 
-First, create a new repository on GitHub:
-1. Go to [github.com/new](https://github.com/new)
-2. Name it `simon-game-app` (or any name you like)
-3. Keep it **Public**
-4. **Don't** initialize with README
-5. Click **Create repository**
+You need your own copy of the code on GitHub so Render can deploy it.
 
-Then push the code:
+**In Cursor, open the chat (Cmd+L or Ctrl+L) and ask:**
 
-```bash
-# Remove the original remote
-git remote remove origin
-git remote remove cday
+> "Create a new public GitHub repository called simon-game-app under my account and push this code to it"
 
-# Add your own remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/simon-game-app.git
+Cursor will:
+1. ✅ Create the repository on GitHub
+2. ✅ Update the git connection
+3. ✅ Push all the code to your new repo
 
-# Push to your repo
-git push -u origin main
-```
+> 💡 **You stay in the same folder** - Cursor handles everything behind the scenes.
 
-### 5.2 Deploy on Render
+When done, verify by going to: `https://github.com/YOUR_USERNAME/simon-game-app`
+
+You should see all the project files there.
+
+---
+
+### 5.2 Create a Render Account
+
+1. Go to [render.com](https://render.com)
+2. Click **Get Started for Free**
+3. Sign up with your **GitHub account** (recommended - makes step 5.3 easier!)
+
+---
+
+### 5.3 Deploy on Render
 
 1. Go to [dashboard.render.com](https://dashboard.render.com)
-2. Click **New** → **Blueprint**
-3. Connect your GitHub account (if not already)
-4. Select your `simon-game-app` repository
-5. Render will detect `render.yaml` automatically
-6. Click **Apply**
+2. Click the **New** button (top right)
+3. Select **Blueprint**
+4. If prompted, connect your GitHub account
+5. Find and select your `simon-game-app` repository
+6. Render will detect the `render.yaml` file automatically
+7. Click **Apply**
 
-Wait for both services to deploy (5-10 minutes).
+⏳ **Wait 5-10 minutes** for both services to build and deploy.
 
-### 5.3 Get Your URLs
+You'll see two services being created:
+- `simon-game-backend` (Web Service)
+- `simon-game-frontend` (Static Site)
 
-After deployment, you'll have two URLs like:
-- **Backend:** `https://simon-game-backend-xxxx.onrender.com`
-- **Frontend:** `https://simon-game-frontend-xxxx.onrender.com`
+---
 
-### 5.4 Configure Environment Variables
+### 5.4 Get Your URLs
 
-**Backend Service:**
-1. Go to your backend service in Render dashboard
-2. Click **Environment**
-3. Set `FRONTEND_URL` to your frontend URL (e.g., `https://simon-game-frontend-xxxx.onrender.com`)
-4. Click **Save Changes**
+Once deployment is complete (green checkmarks), click on each service to find its URL:
 
-**Frontend Service:**
-1. Go to your frontend service in Render dashboard
-2. Click **Environment**
-3. Set both:
-   - `VITE_API_URL` = your backend URL
-   - `VITE_SOCKET_URL` = your backend URL
-4. Click **Save Changes**
+| Service | URL Example |
+|---------|-------------|
+| **Backend** | `https://simon-game-backend-abc123.onrender.com` |
+| **Frontend** | `https://simon-game-frontend-abc123.onrender.com` |
 
-> ⚠️ After changing env vars, Render will automatically redeploy.
+📝 **Write down both URLs** - you'll need them in the next step!
 
-### 5.5 Test Your Deployed Game
+---
 
-1. Open your frontend URL in the browser
+### 5.5 Configure Environment Variables
+
+The services need to know about each other. Let's connect them.
+
+#### Backend Service:
+
+1. In Render dashboard, click on **simon-game-backend**
+2. In the left sidebar, click **Environment**
+3. Find the variable `FRONTEND_URL`
+4. Click the **pencil icon** to edit
+5. Set the value to your **frontend URL** (e.g., `https://simon-game-frontend-abc123.onrender.com`)
+6. Click **Save Changes**
+
+#### Frontend Service:
+
+1. In Render dashboard, click on **simon-game-frontend**
+2. In the left sidebar, click **Environment**
+3. Find `VITE_API_URL` → Set it to your **backend URL**
+4. Find `VITE_SOCKET_URL` → Set it to your **backend URL** (same URL)
+5. Click **Save Changes**
+
+> ⚠️ **Important:** After saving, Render will automatically redeploy. Wait for the green checkmark again.
+
+---
+
+### 5.6 Test Your Deployed Game
+
+1. Open your **frontend URL** in the browser
 2. Create a game
-3. Share the link with a friend
-4. Play together! 🎉
+3. Copy the invite link
+4. Send it to a friend (or open in another browser/device)
+5. Play together online! 🎉
 
 ---
 
@@ -165,34 +222,46 @@ After deployment, you'll have two URLs like:
 You've successfully:
 - ✅ Cloned and set up a full-stack TypeScript project
 - ✅ Run a React + Express + WebSocket app locally
+- ✅ Created your own GitHub repository
 - ✅ Deployed to the cloud with Render
+
+**Your game is now live on the internet!** Share the link with friends and family.
 
 ---
 
 ## 🛠️ Troubleshooting
 
-### Backend won't start
-- Make sure port 3000 is not in use
-- Check that `npm install` completed successfully
+### "npm run setup" fails
+- Make sure Node.js is installed: run `node --version` in terminal
+- Should show `v18.x.x` or higher
 
-### Frontend can't connect
-- Verify backend is running on port 3000
-- Check browser console for errors
+### Backend won't start
+- Make sure port 3000 is not in use by another app
+- Try closing other terminals and running again
+
+### Frontend can't connect to backend
+- Verify backend is running (you should see the 🎮 SIMON GAME SERVER message)
+- Check that you're using http://localhost:5173 (not a different port)
 
 ### Render deployment fails
-- Check build logs in Render dashboard
-- Make sure all environment variables are set
+- Check the **Logs** tab in Render dashboard for error messages
+- Make sure all environment variables are set correctly
+
+### Game works locally but not on Render
+- Double-check the environment variables in step 5.5
+- Make sure you used `https://` (not `http://`) for all URLs
+- Wait for redeploy to complete (green checkmark)
 
 ### WebSocket connection issues
-- Ensure `VITE_SOCKET_URL` matches your backend URL
-- Use `https://` (not `http://`) for deployed URLs
+- Ensure `VITE_SOCKET_URL` matches your exact backend URL
+- Check browser console (F12 → Console tab) for error messages
 
 ---
 
 ## 📚 Project Structure
 
 ```
-simon-game-app/
+simon-game-app-cday/
 ├── src/
 │   ├── backend/         # Express + Socket.io server
 │   │   ├── controllers/ # HTTP endpoints
@@ -208,6 +277,7 @@ simon-game-app/
 │       └── store/       # Zustand state
 ├── tests/               # Test files
 ├── render.yaml          # Render deployment config
+├── setup.sh             # Setup script
 └── package.json
 ```
 
@@ -215,11 +285,22 @@ simon-game-app/
 
 ## 🔗 Useful Links
 
+- [Cursor IDE](https://cursor.com)
 - [Node.js](https://nodejs.org)
 - [React](https://react.dev)
 - [Socket.io](https://socket.io)
 - [Render Docs](https://render.com/docs)
 - [TypeScript](https://www.typescriptlang.org)
+
+---
+
+## ❓ Need Help?
+
+If you get stuck, ask Cursor! Open the chat and describe your problem:
+
+> "I'm getting an error when running npm run setup. Here's what I see: [paste error]"
+
+Cursor can help diagnose and fix most issues.
 
 ---
 
