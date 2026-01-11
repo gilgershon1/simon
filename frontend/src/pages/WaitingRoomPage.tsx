@@ -281,7 +281,7 @@ export function WaitingRoomPage() {
   // Render game board if active
   if (roomStatus === 'active' && isGameActive) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-2 sm:p-4">
         {/* Mute Button */}
         <MuteButton />
         
@@ -375,7 +375,7 @@ export function WaitingRoomPage() {
   // Render countdown
   if (roomStatus === 'countdown' && countdownValue !== null) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-4">
         <div className="text-center">
           <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold text-white mb-4">{countdownValue}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/80">Get ready!</p>
@@ -386,7 +386,7 @@ export function WaitingRoomPage() {
   
   // Render waiting room
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
       {/* Toast notification */}
       {toast && (
         <Toast
@@ -396,13 +396,13 @@ export function WaitingRoomPage() {
         />
       )}
       
-      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 max-w-md sm:max-w-xl md:max-w-2xl w-full">
-        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Waiting Room</h1>
+      <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 max-w-md sm:max-w-xl md:max-w-2xl w-full">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2 text-white">Waiting Room</h1>
         
         {/* Game Code Display with Share Buttons */}
         <div className="mb-6 sm:mb-8">
-          <p className="text-center text-gray-600 mb-3 text-sm sm:text-base">
-            Game Code: <span className="font-mono font-bold text-xl sm:text-2xl text-purple-600">{gameCode}</span>
+          <p className="text-center text-white/80 mb-3 text-sm sm:text-base">
+            Game Code: <span className="font-mono font-bold text-xl sm:text-2xl text-white">{gameCode}</span>
           </p>
           
           {/* Invite Buttons */}
@@ -438,18 +438,18 @@ export function WaitingRoomPage() {
         
         {/* Players List */}
         <div className="mb-6 sm:mb-8">
-          <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Players ({players.length})</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Players ({players.length})</h2>
           <div className="space-y-2">
             {players.map(player => (
               <div 
                 key={player.id} 
-                className="bg-gray-100 rounded-lg p-3 flex items-center justify-between"
+                className="bg-white/20 rounded-lg p-3 flex items-center justify-between"
               >
-                <span className="font-medium">
+                <span className="font-medium text-white">
                   {player.displayName}
                   {player.id === playerId && ' (You)'}
                 </span>
-                {player.isHost && <span className="text-yellow-500">👑 Host</span>}
+                {player.isHost && <span className="text-yellow-400">👑 Host</span>}
               </div>
             ))}
           </div>
@@ -459,7 +459,7 @@ export function WaitingRoomPage() {
         {(isHost || players.length === 1) && (
           <>
             {players.length === 1 && (
-              <p className="text-center text-sm text-gray-500 mb-2">
+              <p className="text-center text-sm text-white/70 mb-2">
                 💡 You can start solo or wait for others to join
               </p>
             )}
@@ -476,7 +476,7 @@ export function WaitingRoomPage() {
         )}
         
         {!isHost && players.length > 1 && (
-          <p className="text-center text-gray-500 text-sm sm:text-base">
+          <p className="text-center text-white/70 text-sm sm:text-base">
             Waiting for host to start the game...
           </p>
         )}

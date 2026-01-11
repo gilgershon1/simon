@@ -65,10 +65,10 @@ export function EntryPage() {
 
   if (!mode) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center p-3 sm:p-4">
-        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
-          <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">🎮 Simon Says</h1>
-          <p className="text-gray-600 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
+        <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
+          <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2 text-white">🎮 Simon Says</h1>
+          <p className="text-white/70 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
           
           <div className="flex flex-col items-center gap-10">
             <button
@@ -93,22 +93,22 @@ export function EntryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
+      <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
         <button
           onClick={() => setMode(null)}
-          className="text-gray-600 hover:text-gray-800 active:text-gray-900 mb-4 text-sm sm:text-base"
+          className="text-white/70 hover:text-white active:text-white mb-4 text-sm sm:text-base"
         >
           ← Back
         </button>
         
-        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-white">
           {mode === 'create' ? 'Create Game' : 'Join Game'}
         </h2>
         
         <form onSubmit={mode === 'create' ? handleCreateGame : handleJoinGame} className="space-y-3 sm:space-y-4">
           <div>
-            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+            <label className="block text-xs sm:text-sm font-medium text-white mb-1.5 sm:mb-2">
               Display Name
             </label>
             <input
@@ -119,16 +119,16 @@ export function EntryPage() {
               minLength={3}
               maxLength={12}
               required
-              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent text-sm sm:text-base"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent text-sm sm:text-base text-white placeholder-white/50"
             />
           </div>
           
           {mode === 'join' && (
             <div>
-              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+              <label className="block text-xs sm:text-sm font-medium text-white mb-1.5 sm:mb-2">
                 Game Code
                 {searchParams.get('join') && (
-                  <span className="ml-2 text-xs text-green-600 font-normal">
+                  <span className="ml-2 text-xs text-green-400 font-normal">
                     ✅ Pre-filled from invite link
                   </span>
                 )}
@@ -140,13 +140,13 @@ export function EntryPage() {
                 placeholder="ABCDEF"
                 maxLength={6}
                 required
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent uppercase text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent uppercase text-sm sm:text-base text-white placeholder-white/50"
               />
             </div>
           )}
           
           <div>
-            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
+            <label className="block text-xs sm:text-sm font-medium text-white mb-1.5 sm:mb-2">
               Avatar
             </label>
             <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
@@ -157,8 +157,8 @@ export function EntryPage() {
                   onClick={() => setAvatarId(id)}
                   className={`p-2.5 sm:p-4 rounded-lg border-2 transition-all duration-75 active:scale-95 min-h-[56px] min-w-[56px] ${
                     avatarId === id
-                      ? 'border-purple-600 bg-purple-50'
-                      : 'border-gray-200 hover:border-gray-300 active:border-gray-400'
+                      ? 'border-white bg-white/20'
+                      : 'border-white/30 hover:border-white/50 active:border-white/70 bg-white/10'
                   }`}
                   style={{ touchAction: 'manipulation' }}
                 >
@@ -169,7 +169,7 @@ export function EntryPage() {
           </div>
           
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-800 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm">
+            <div className="bg-red-500/20 border border-red-400 text-red-200 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm">
               {error}
             </div>
           )}
