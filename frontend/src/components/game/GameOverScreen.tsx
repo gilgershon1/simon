@@ -289,32 +289,35 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Play Again Button */}
           <button
             onClick={onPlayAgain}
-            className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 active:from-green-700 active:to-emerald-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 shadow-lg"
+            className="relative w-full bg-gradient-to-b from-green-400/80 to-green-600/80 hover:from-green-300/80 hover:to-green-500/80 active:from-green-500/80 active:to-green-700/80 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-sm border border-white/20 shadow-lg shadow-green-500/30 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            🔄 PLAY AGAIN
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl"></span>
+            <span className="relative">🔄 PLAY AGAIN</span>
           </button>
 
           {/* Home Button */}
           <button
             onClick={onGoHome}
-            className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 active:from-gray-700 active:to-gray-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2"
+            className="relative w-full bg-gradient-to-b from-gray-400/80 to-gray-600/80 hover:from-gray-300/80 hover:to-gray-500/80 active:from-gray-500/80 active:to-gray-700/80 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-sm border border-white/20 shadow-lg overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            🏠 HOME
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl"></span>
+            <span className="relative">🏠 HOME</span>
           </button>
 
           {/* Share Button */}
           <button
             onClick={handleShare}
-            className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 active:from-blue-700 active:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-100 active:scale-95 flex items-center justify-center gap-2"
+            className="relative w-full bg-gradient-to-b from-blue-400/80 to-blue-600/80 hover:from-blue-300/80 hover:to-blue-500/80 active:from-blue-500/80 active:to-blue-700/80 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-100 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-sm border border-white/20 shadow-lg shadow-blue-500/30 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            📤 SHARE SCORE
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl"></span>
+            <span className="relative">📤 SHARE SCORE</span>
           </button>
         </div>
       </div>
