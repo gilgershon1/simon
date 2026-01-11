@@ -406,28 +406,28 @@ export function WaitingRoomPage() {
           </p>
           
           {/* Invite Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+          <div className="flex flex-row gap-2 justify-center">
             <button
               onClick={copyGameCode}
-              className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 text-gray-700 font-medium py-2.5 sm:py-2 px-4 rounded-lg transition-all duration-75 flex items-center justify-center gap-2 text-sm sm:text-base min-h-[44px]"
+              className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 text-gray-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[90px]"
               style={{ touchAction: 'manipulation' }}
               title="Copy game code"
             >
-              📋 <span className="hidden sm:inline">Copy Code</span><span className="sm:hidden">Code</span>
+              📋 Code
             </button>
             
             <button
               onClick={copyInviteLink}
-              className="bg-blue-100 hover:bg-blue-200 active:bg-blue-300 active:scale-95 text-blue-700 font-medium py-2.5 sm:py-2 px-4 rounded-lg transition-all duration-75 flex items-center justify-center gap-2 text-sm sm:text-base min-h-[44px]"
+              className="bg-blue-100 hover:bg-blue-200 active:bg-blue-300 active:scale-95 text-blue-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[90px]"
               style={{ touchAction: 'manipulation' }}
               title="Copy invite link"
             >
-              🔗 <span className="hidden sm:inline">Copy Link</span><span className="sm:hidden">Link</span>
+              🔗 Link
             </button>
             
             <button
               onClick={shareGame}
-              className="bg-green-100 hover:bg-green-200 active:bg-green-300 active:scale-95 text-green-700 font-medium py-2.5 sm:py-2 px-4 rounded-lg transition-all duration-75 flex items-center justify-center gap-2 text-sm sm:text-base min-h-[44px]"
+              className="bg-green-100 hover:bg-green-200 active:bg-green-300 active:scale-95 text-green-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[90px]"
               style={{ touchAction: 'manipulation' }}
               title="Share with friends"
             >
@@ -463,13 +463,15 @@ export function WaitingRoomPage() {
                 💡 You can start solo or wait for others to join
               </p>
             )}
-            <button
-              onClick={handleStartGame}
-              className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-98 text-white font-bold py-3 sm:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-75 text-base sm:text-lg min-h-[56px]"
-              style={{ touchAction: 'manipulation' }}
-            >
-              🎮 {players.length === 1 ? 'Start Solo Game' : 'Start Game'}
-            </button>
+            <div className="flex justify-center">
+              <button
+                onClick={handleStartGame}
+                className="bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
+                style={{ touchAction: 'manipulation' }}
+              >
+                🎮 {players.length === 1 ? 'Start Solo' : 'Start Game'}
+              </button>
+            </div>
           </>
         )}
         
