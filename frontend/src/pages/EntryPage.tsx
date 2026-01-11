@@ -70,10 +70,10 @@ export function EntryPage() {
           <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">🎮 Simon Says</h1>
           <p className="text-gray-600 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
           
-          <div className="space-y-3 sm:space-y-4">
+          <div className="flex flex-col items-center gap-3">
             <button
               onClick={() => setMode('create')}
-              className="w-full bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-bold py-3 sm:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-75 text-base sm:text-lg min-h-[56px]"
+              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
               style={{ touchAction: 'manipulation' }}
             >
               Create Game
@@ -81,7 +81,7 @@ export function EntryPage() {
             
             <button
               onClick={() => setMode('join')}
-              className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-bold py-3 sm:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-75 text-base sm:text-lg min-h-[56px]"
+              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
               style={{ touchAction: 'manipulation' }}
             >
               Join Game
@@ -174,14 +174,16 @@ export function EntryPage() {
             </div>
           )}
           
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 disabled:bg-gray-400 text-white font-bold py-3 sm:py-4 px-6 rounded-lg sm:rounded-xl transition-all duration-75 text-base sm:text-lg min-h-[56px]"
-            style={{ touchAction: 'manipulation' }}
-          >
-            {loading ? 'Loading...' : mode === 'create' ? 'Create Game' : 'Join Game'}
-          </button>
+          <div className="flex justify-center pt-2">
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 disabled:bg-gray-400 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              style={{ touchAction: 'manipulation' }}
+            >
+              {loading ? 'Loading...' : mode === 'create' ? 'Create Game' : 'Join Game'}
+            </button>
+          </div>
         </form>
       </div>
     </div>
