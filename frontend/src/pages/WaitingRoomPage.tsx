@@ -406,34 +406,34 @@ export function WaitingRoomPage() {
           </p>
           
           {/* Invite Buttons */}
-          <div className="flex flex-col gap-6 items-center">
+          <div className="flex flex-col gap-16 items-center">
             <button
               onClick={copyGameCode}
-              className="relative bg-gradient-to-b from-gray-400/80 to-gray-600/80 hover:from-gray-300/80 hover:to-gray-500/80 active:from-gray-500/80 active:to-gray-700/80 active:scale-95 text-white font-bold py-3 px-8 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-sm w-[160px] backdrop-blur-sm border border-white/10 shadow-lg overflow-hidden"
+              className="relative bg-gradient-to-b from-gray-400/90 to-gray-600/90 hover:from-gray-300/90 hover:to-gray-500/90 active:from-gray-500/90 active:to-gray-700/90 active:scale-95 text-white font-bold py-4 px-10 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-base w-[180px] backdrop-blur-md shadow-xl overflow-hidden"
               style={{ touchAction: 'manipulation' }}
               title="Copy game code"
             >
-              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
               <span className="relative">📋 Code</span>
             </button>
             
             <button
               onClick={copyInviteLink}
-              className="relative bg-gradient-to-b from-blue-400/80 to-blue-600/80 hover:from-blue-300/80 hover:to-blue-500/80 active:from-blue-500/80 active:to-blue-700/80 active:scale-95 text-white font-bold py-3 px-8 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-sm w-[160px] backdrop-blur-sm border border-white/10 shadow-lg shadow-blue-500/30 overflow-hidden"
+              className="relative bg-gradient-to-b from-blue-400/90 to-blue-600/90 hover:from-blue-300/90 hover:to-blue-500/90 active:from-blue-500/90 active:to-blue-700/90 active:scale-95 text-white font-bold py-4 px-10 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-base w-[180px] backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
               style={{ touchAction: 'manipulation' }}
               title="Copy invite link"
             >
-              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
               <span className="relative">🔗 Link</span>
             </button>
             
             <button
               onClick={shareGame}
-              className="relative bg-gradient-to-b from-green-400/80 to-green-600/80 hover:from-green-300/80 hover:to-green-500/80 active:from-green-500/80 active:to-green-700/80 active:scale-95 text-white font-bold py-3 px-8 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-sm w-[160px] backdrop-blur-sm border border-white/10 shadow-lg shadow-green-500/30 overflow-hidden"
+              className="relative bg-gradient-to-b from-green-400/90 to-green-600/90 hover:from-green-300/90 hover:to-green-500/90 active:from-green-500/90 active:to-green-700/90 active:scale-95 text-white font-bold py-4 px-10 rounded-full transition-all duration-75 flex items-center justify-center gap-2 text-base w-[180px] backdrop-blur-md shadow-xl shadow-green-500/40 overflow-hidden"
               style={{ touchAction: 'manipulation' }}
               title="Share with friends"
             >
-              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+              <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
               <span className="relative">📤 Share</span>
             </button>
           </div>
@@ -466,13 +466,13 @@ export function WaitingRoomPage() {
                 💡 You can start solo or wait for others to join
               </p>
             )}
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-8">
               <button
                 onClick={handleStartGame}
-                className="relative bg-gradient-to-b from-green-400/80 to-green-600/80 hover:from-green-300/80 hover:to-green-500/80 active:from-green-500/80 active:to-green-700/80 active:scale-98 text-white font-bold py-4 px-12 rounded-full transition-all duration-75 text-base min-w-[260px] backdrop-blur-sm border border-white/10 shadow-lg shadow-green-500/30 overflow-hidden"
+                className="relative bg-gradient-to-b from-green-400/90 to-green-600/90 hover:from-green-300/90 hover:to-green-500/90 active:from-green-500/90 active:to-green-700/90 active:scale-98 text-white font-bold py-5 px-16 rounded-full transition-all duration-75 text-lg min-w-[280px] backdrop-blur-md shadow-xl shadow-green-500/40 overflow-hidden"
                 style={{ touchAction: 'manipulation' }}
               >
-                <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+                <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
                 <span className="relative">🎮 {players.length === 1 ? 'Start Solo' : 'Start Game'}</span>
               </button>
             </div>

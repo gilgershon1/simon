@@ -289,34 +289,34 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           {/* Play Again Button */}
           <button
             onClick={onPlayAgain}
-            className="relative w-full bg-gradient-to-b from-green-400/80 to-green-600/80 hover:from-green-300/80 hover:to-green-500/80 active:from-green-500/80 active:to-green-700/80 text-white font-bold py-4 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-sm border border-white/10 shadow-lg shadow-green-500/30 overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-green-400/90 to-green-600/90 hover:from-green-300/90 hover:to-green-500/90 active:from-green-500/90 active:to-green-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-green-500/40 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
             <span className="relative">🔄 PLAY AGAIN</span>
           </button>
 
           {/* Home Button */}
           <button
             onClick={onGoHome}
-            className="relative w-full bg-gradient-to-b from-gray-400/80 to-gray-600/80 hover:from-gray-300/80 hover:to-gray-500/80 active:from-gray-500/80 active:to-gray-700/80 text-white font-bold py-4 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-sm border border-white/10 shadow-lg overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-gray-400/90 to-gray-600/90 hover:from-gray-300/90 hover:to-gray-500/90 active:from-gray-500/90 active:to-gray-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-md shadow-xl overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
             <span className="relative">🏠 HOME</span>
           </button>
 
           {/* Share Button */}
           <button
             onClick={handleShare}
-            className="relative w-full bg-gradient-to-b from-blue-400/80 to-blue-600/80 hover:from-blue-300/80 hover:to-blue-500/80 active:from-blue-500/80 active:to-blue-700/80 text-white font-bold py-4 px-6 rounded-full transition-all duration-100 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-sm border border-white/10 shadow-lg shadow-blue-500/30 overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-blue-400/90 to-blue-600/90 hover:from-blue-300/90 hover:to-blue-500/90 active:from-blue-500/90 active:to-blue-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
-            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/30 to-transparent rounded-t-full"></span>
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
             <span className="relative">📤 SHARE SCORE</span>
           </button>
         </div>
