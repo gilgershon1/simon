@@ -73,18 +73,18 @@ export function EntryPage() {
           <div className="flex flex-col items-center gap-10">
             <button
               onClick={() => setMode('create')}
-              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
               style={{ touchAction: 'manipulation' }}
             >
-              Create Game
+              🚀 Create Game
             </button>
             
             <button
               onClick={() => setMode('join')}
-              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
               style={{ touchAction: 'manipulation' }}
             >
-              Join Game
+              🤝 Join Game
             </button>
           </div>
         </div>
