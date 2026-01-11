@@ -65,15 +65,15 @@ export function EntryPage() {
 
   if (!mode) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-3 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-950 to-blue-800 flex items-center justify-center p-3 sm:p-4">
         <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
           <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2 text-white">🎮 Simon Says</h1>
           <p className="text-white/70 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
           
-          <div className="flex flex-col items-center gap-[120px]">
+          <div className="flex flex-col items-center gap-10">
             <button
               onClick={() => setMode('create')}
-              className="relative bg-gradient-to-b from-purple-500/90 to-purple-700/90 hover:from-purple-400/90 hover:to-purple-600/90 active:from-purple-600/90 active:to-purple-800/90 active:scale-98 text-white font-bold py-5 px-20 rounded-full transition-all duration-75 text-lg min-w-[250px] backdrop-blur-md shadow-xl shadow-purple-500/40 overflow-hidden"
+              className="relative bg-gradient-to-b from-purple-500/90 to-purple-700/90 hover:from-purple-400/90 hover:to-purple-600/90 active:from-purple-600/90 active:to-purple-800/90 active:scale-98 text-white font-bold py-6 px-24 rounded-full transition-all duration-75 text-xl min-w-[280px] backdrop-blur-md shadow-xl shadow-purple-500/40 overflow-hidden"
               style={{ touchAction: 'manipulation' }}
             >
               <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
@@ -82,7 +82,7 @@ export function EntryPage() {
             
             <button
               onClick={() => setMode('join')}
-              className="relative bg-gradient-to-b from-blue-500/90 to-blue-700/90 hover:from-blue-400/90 hover:to-blue-600/90 active:from-blue-600/90 active:to-blue-800/90 active:scale-98 text-white font-bold py-5 px-20 rounded-full transition-all duration-75 text-lg min-w-[250px] backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
+              className="relative bg-gradient-to-b from-blue-500/90 to-blue-700/90 hover:from-blue-400/90 hover:to-blue-600/90 active:from-blue-600/90 active:to-blue-800/90 active:scale-98 text-white font-bold py-6 px-24 rounded-full transition-all duration-75 text-xl min-w-[280px] backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
               style={{ touchAction: 'manipulation' }}
             >
               <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
@@ -95,7 +95,7 @@ export function EntryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 to-blue-800 flex items-center justify-center p-3 sm:p-4">
       <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
         <button
           onClick={() => setMode(null)}
@@ -180,7 +180,7 @@ export function EntryPage() {
             <button
               type="submit"
               disabled={loading}
-              className="relative bg-gradient-to-b from-purple-500/90 to-purple-700/90 hover:from-purple-400/90 hover:to-purple-600/90 active:from-purple-600/90 active:to-purple-800/90 active:scale-98 disabled:from-gray-400/90 disabled:to-gray-500/90 text-white font-bold py-5 px-20 rounded-full transition-all duration-75 text-lg min-w-[250px] backdrop-blur-md shadow-xl shadow-purple-500/40 overflow-hidden"
+              className="relative bg-gradient-to-b from-purple-500/90 to-purple-700/90 hover:from-purple-400/90 hover:to-purple-600/90 active:from-purple-600/90 active:to-purple-800/90 active:scale-98 disabled:from-gray-400/90 disabled:to-gray-500/90 text-white font-bold py-6 px-24 rounded-full transition-all duration-75 text-xl min-w-[280px] backdrop-blur-md shadow-xl shadow-purple-500/40 overflow-hidden"
               style={{ touchAction: 'manipulation' }}
             >
               <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>

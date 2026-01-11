@@ -170,7 +170,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 to-blue-800 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Confetti */}
       {showConfetti && <Confetti />}
       
@@ -289,11 +289,11 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="space-y-8">
+        <div className="space-y-10">
           {/* Play Again Button */}
           <button
             onClick={onPlayAgain}
-            className="relative w-full bg-gradient-to-b from-green-400/90 to-green-600/90 hover:from-green-300/90 hover:to-green-500/90 active:from-green-500/90 active:to-green-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-green-500/40 overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-green-400/90 to-green-600/90 hover:from-green-300/90 hover:to-green-500/90 active:from-green-500/90 active:to-green-700/90 text-white font-bold py-6 px-6 rounded-full transition-all duration-100 active:scale-95 text-xl flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-green-500/40 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
             <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
@@ -303,7 +303,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           {/* Home Button */}
           <button
             onClick={onGoHome}
-            className="relative w-full bg-gradient-to-b from-gray-400/90 to-gray-600/90 hover:from-gray-300/90 hover:to-gray-500/90 active:from-gray-500/90 active:to-gray-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 backdrop-blur-md shadow-xl overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-gray-400/90 to-gray-600/90 hover:from-gray-300/90 hover:to-gray-500/90 active:from-gray-500/90 active:to-gray-700/90 text-white font-bold py-6 px-6 rounded-full transition-all duration-100 active:scale-95 text-xl flex items-center justify-center gap-2 backdrop-blur-md shadow-xl overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
             <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
@@ -313,7 +313,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           {/* Share Button */}
           <button
             onClick={handleShare}
-            className="relative w-full bg-gradient-to-b from-blue-400/90 to-blue-600/90 hover:from-blue-300/90 hover:to-blue-500/90 active:from-blue-500/90 active:to-blue-700/90 text-white font-bold py-5 px-6 rounded-full transition-all duration-100 active:scale-95 flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
+            className="relative w-full bg-gradient-to-b from-blue-400/90 to-blue-600/90 hover:from-blue-300/90 hover:to-blue-500/90 active:from-blue-500/90 active:to-blue-700/90 text-white font-bold py-6 px-6 rounded-full transition-all duration-100 active:scale-95 text-xl flex items-center justify-center gap-2 backdrop-blur-md shadow-xl shadow-blue-500/40 overflow-hidden"
             style={{ touchAction: 'manipulation' }}
           >
             <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full"></span>
