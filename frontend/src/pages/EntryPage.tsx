@@ -65,7 +65,7 @@ export function EntryPage() {
 
   if (!mode) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-3 sm:p-4">
         <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
           <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2 text-white">🎮 Simon Says</h1>
           <p className="text-white/70 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
@@ -73,7 +73,7 @@ export function EntryPage() {
           <div className="flex flex-col items-center gap-10">
             <button
               onClick={() => setMode('create')}
-              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
+              className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 active:from-purple-800 active:to-pink-700 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
               style={{ touchAction: 'manipulation' }}
             >
               🚀 Create Game
@@ -81,7 +81,7 @@ export function EntryPage() {
             
             <button
               onClick={() => setMode('join')}
-              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
+              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 active:from-blue-800 active:to-cyan-700 active:scale-98 text-white font-bold py-2.5 px-12 rounded-lg transition-all duration-75 text-sm min-w-[180px]"
               style={{ touchAction: 'manipulation' }}
             >
               🤝 Join Game
@@ -93,7 +93,7 @@ export function EntryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-3 sm:p-4">
       <div className="bg-white/10 backdrop-blur rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
         <button
           onClick={() => setMode(null)}
@@ -178,7 +178,7 @@ export function EntryPage() {
             <button
               type="submit"
               disabled={loading}
-              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 disabled:bg-gray-400 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 active:from-purple-800 active:to-pink-700 active:scale-98 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
               style={{ touchAction: 'manipulation' }}
             >
               {loading ? 'Loading...' : mode === 'create' ? 'Create Game' : 'Join Game'}

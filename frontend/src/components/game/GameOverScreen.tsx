@@ -170,7 +170,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Confetti */}
       {showConfetti && <Confetti />}
       
@@ -293,7 +293,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           {/* Play Again Button */}
           <button
             onClick={onPlayAgain}
-            className="w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 shadow-lg"
+            className="w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 active:from-green-700 active:to-emerald-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2 shadow-lg"
             style={{ touchAction: 'manipulation' }}
           >
             🔄 PLAY AGAIN
@@ -302,7 +302,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           {/* Home Button */}
           <button
             onClick={onGoHome}
-            className="w-full bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 active:from-gray-700 active:to-gray-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-100 active:scale-95 text-lg flex items-center justify-center gap-2"
             style={{ touchAction: 'manipulation' }}
           >
             🏠 HOME
@@ -311,7 +311,7 @@ export const GameOverScreen: React.FC<GameOverScreenProps> = ({
           {/* Share Button */}
           <button
             onClick={handleShare}
-            className="w-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-100 active:scale-95 flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 active:from-blue-700 active:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-100 active:scale-95 flex items-center justify-center gap-2"
             style={{ touchAction: 'manipulation' }}
           >
             📤 SHARE SCORE

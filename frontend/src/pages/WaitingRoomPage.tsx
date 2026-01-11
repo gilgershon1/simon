@@ -281,7 +281,7 @@ export function WaitingRoomPage() {
   // Render game board if active
   if (roomStatus === 'active' && isGameActive) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-2 sm:p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-2 sm:p-4">
         {/* Mute Button */}
         <MuteButton />
         
@@ -375,7 +375,7 @@ export function WaitingRoomPage() {
   // Render countdown
   if (roomStatus === 'countdown' && countdownValue !== null) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-4">
         <div className="text-center">
           <h1 className="text-6xl sm:text-7xl md:text-9xl font-bold text-white mb-4">{countdownValue}</h1>
           <p className="text-lg sm:text-xl md:text-2xl text-white/80">Get ready!</p>
@@ -386,7 +386,7 @@ export function WaitingRoomPage() {
   
   // Render waiting room
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-red-900 flex items-center justify-center p-3 sm:p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-pink-300 flex items-center justify-center p-3 sm:p-4">
       {/* Toast notification */}
       {toast && (
         <Toast
@@ -409,7 +409,7 @@ export function WaitingRoomPage() {
           <div className="flex flex-col gap-10 items-center">
             <button
               onClick={copyGameCode}
-              className="bg-gray-100 hover:bg-gray-200 active:bg-gray-300 active:scale-95 text-gray-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
+              className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 active:from-gray-700 active:to-gray-800 active:scale-95 text-white font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
               style={{ touchAction: 'manipulation' }}
               title="Copy game code"
             >
@@ -418,7 +418,7 @@ export function WaitingRoomPage() {
             
             <button
               onClick={copyInviteLink}
-              className="bg-blue-100 hover:bg-blue-200 active:bg-blue-300 active:scale-95 text-blue-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
+              className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 active:from-blue-700 active:to-cyan-700 active:scale-95 text-white font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
               style={{ touchAction: 'manipulation' }}
               title="Copy invite link"
             >
@@ -427,7 +427,7 @@ export function WaitingRoomPage() {
             
             <button
               onClick={shareGame}
-              className="bg-green-100 hover:bg-green-200 active:bg-green-300 active:scale-95 text-green-700 font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 active:from-green-700 active:to-emerald-700 active:scale-95 text-white font-medium py-2 px-3 rounded-lg transition-all duration-75 flex items-center justify-center gap-1 text-xs w-[112px]"
               style={{ touchAction: 'manipulation' }}
               title="Share with friends"
             >
@@ -466,7 +466,7 @@ export function WaitingRoomPage() {
             <div className="flex justify-center">
               <button
                 onClick={handleStartGame}
-                className="bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm min-w-[225px]"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 active:from-green-700 active:to-emerald-700 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm min-w-[225px]"
                 style={{ touchAction: 'manipulation' }}
               >
                 🎮 {players.length === 1 ? 'Start Solo' : 'Start Game'}
