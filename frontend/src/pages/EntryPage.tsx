@@ -70,10 +70,10 @@ export function EntryPage() {
           <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">🎮 Simon Says</h1>
           <p className="text-gray-600 text-center mb-6 sm:mb-8 text-sm sm:text-base">Color Race Edition</p>
           
-          <div className="flex flex-col items-center gap-5">
+          <div className="flex flex-col items-center gap-10">
             <button
               onClick={() => setMode('create')}
-              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              className="bg-purple-600 hover:bg-purple-700 active:bg-purple-800 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
               style={{ touchAction: 'manipulation' }}
             >
               Create Game
@@ -81,7 +81,7 @@ export function EntryPage() {
             
             <button
               onClick={() => setMode('join')}
-              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-semibold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
+              className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-98 text-white font-bold py-2.5 px-8 rounded-lg transition-all duration-75 text-sm"
               style={{ touchAction: 'manipulation' }}
             >
               Join Game
